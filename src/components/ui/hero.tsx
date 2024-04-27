@@ -26,9 +26,6 @@ export const Hero4 = () => (
             <Button size="lg" className="gap-4" variant="outline">
               Jump on a call <PhoneCall className="w-4 h-4" />
             </Button>
-            <Button size="lg" className="gap-4">
-              Sign up here <MoveRight className="w-4 h-4" />
-            </Button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8">
