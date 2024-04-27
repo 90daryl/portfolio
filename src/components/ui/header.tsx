@@ -9,6 +9,7 @@ NavigationMenuLink,
 NavigationMenuList,
 NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Link } from "gatsby";
 import { Menu, MoveRight, X } from "lucide-react";
 import React from "react";
 import { useState } from "react";
@@ -52,7 +53,7 @@ const navigationItems = [
 
 const [isOpen, setOpen] = useState(false);
 return (
-    <header className="w-full z-40 fixed top-0 left-0 bg-background">
+    <header className="w-full z-40 fixed top-0 left-0 bg-white">
     <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
         <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
         <NavigationMenu className="flex justify-start items-start">
@@ -70,7 +71,7 @@ return (
                     <NavigationMenuTrigger className="font-medium text-sm">
                         {item.title}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="!w-[450px] p-4">
+                    <NavigationMenuContent className="!w-[450px] p-4 bg-white">
                         <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                         <div className="flex flex-col h-full justify-between">
                             <div className="flex flex-col">
@@ -116,6 +117,40 @@ return (
         <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
+        {isOpen && (
+            <div className="absolute top-20 border-t flex flex-col w-full right-0 bg-white shadow-md py-4 container gap-8">
+            {navigationItems.map((item) => (
+                <div key={item.title}>
+                <div className="flex flex-col gap-2">
+                    {item.href ? (
+                    <Link
+                        to={item.href}
+                        className="flex justify-between items-center"
+                    >
+                        <span className="text-lg">{item.title}</span>
+                        <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
+                    </Link>
+                    ) : (
+                    <p className="text-lg">{item.title}</p>
+                    )}
+                    {item.items &&
+                    item.items.map((subItem) => (
+                        <Link
+                        key={subItem.title}
+                        to={subItem.href}
+                        className="flex justify-between items-center"
+                        >
+                        <span className="text-muted-foreground">
+                            {subItem.title}
+                        </span>
+                        <MoveRight className="w-4 h-4 stroke-1" />
+                        </Link>
+                    ))}
+                </div>
+                </div>
+            ))}
+            </div>
+        )}
         </div>
     </div>
     </header>
