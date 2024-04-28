@@ -14,4 +14,4 @@ const More: React.FC<PageProps> = () => {
   
   export default More
   
-  export const Head: HeadFC = () => <title>Contact Page</title>
+  export const Head: HeadFC = () => <title>More</title>

@@ -14,4 +14,4 @@ const Birthdays: React.FC<PageProps> = () => {
   
   export default Birthdays
   
-  export const Head: HeadFC = () => <title>Contact Page</title>
+  export const Head: HeadFC = () => <title>Birthday Page</title>

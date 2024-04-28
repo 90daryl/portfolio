@@ -1,17 +1,17 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Contact1 } from "@/components/ui/contact"
 import Layout from "@/components/Layout"
+import { Case1 } from "@/components/ui/case"
 
 
 const Weddings: React.FC<PageProps> = () => {
     return (
       <Layout>
-        <p>Under Construction</p>
+        <Case1/>
       </Layout>
     )
   }
   
   export default Weddings
   
-  export const Head: HeadFC = () => <title>Contact Page</title>
+  export const Head: HeadFC = () => <title>Wedding Page</title>

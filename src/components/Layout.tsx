@@ -1,6 +1,7 @@
 import { Header1 } from "@/components/ui/header"
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
+import { Footer1 } from "./ui/footer";
 
 interface LayoutProps {
     children: ReactNode;
@@ -14,9 +15,10 @@ const pageStyles = {
 
 function Layout({ children }: LayoutProps) {
     return (
-        <main style={pageStyles}>
+        <main className="pt-24 pb-4">
             <Header1/>
             {children}
+            <Footer1/>
         </main>
     )
 }
