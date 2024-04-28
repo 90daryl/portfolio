@@ -1,4 +1,3 @@
-"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -39,7 +38,7 @@ const navigationItems = [
         },
         {
         title: "Contact us",
-        href: "/contactus",
+        href: "/contact",
         },
     ],
     },
@@ -62,9 +61,9 @@ return (
                 <NavigationMenuItem key={item.title}>
                 {item.href ? (
                     <>
-                    <NavigationMenuLink>
+                    <Link to={item.href}>
                         <Button variant="ghost">{item.title}</Button>
-                    </NavigationMenuLink>
+                    </Link>
                     </>
                 ) : (
                     <>
@@ -86,14 +85,14 @@ return (
                         </div>
                         <div className="flex flex-col text-sm h-full justify-end">
                             {item.items?.map((subItem) => (
-                            <NavigationMenuLink
-                                href={subItem.href}
+                            <Link
+                                to={subItem.href}
                                 key={subItem.title}
                                 className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
                             >
                                 <span>{subItem.title}</span>
                                 <MoveRight className="w-4 h-4 text-muted-foreground" />
-                            </NavigationMenuLink>
+                            </Link>
                             ))}
                         </div>
                         </div>

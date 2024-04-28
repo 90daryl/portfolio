@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Header1 } from "@/components/ui/header"
 import { Hero4 } from "@/components/ui/hero"
+import Layout from "@/components/Layout"
 
 const pageStyles = {
   color: "#232129",
@@ -82,10 +82,9 @@ const badgeStyle = {
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
-    <Header1/>
-    <Hero4/>
-    </main>
+    <Layout>
+      <Hero4/>
+    </Layout>
   )
 }
 
